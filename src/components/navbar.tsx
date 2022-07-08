@@ -4,16 +4,13 @@ const Navbar: FC<{}> = () => {
   return (
     <div className="navbar bg-base-100 fixed top-0">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">DC</a>
+        <a className="btn btn-ghost normal-case text-xl font-primary tracking-tighter">DC</a>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0">
-          <li>
-            <a>Item 1</a>
-          </li>
           <li tabIndex={0}>
             <a>
-              Parent
+              My Garden
               <svg
                 className="fill-current"
                 xmlns="http://www.w3.org/2000/svg"
@@ -26,15 +23,21 @@ const Navbar: FC<{}> = () => {
             </a>
             <ul className="p-2 bg-base-100">
               <li>
-                <a>Submenu 1</a>
+                <a>Notes</a>
               </li>
               <li>
-                <a>Submenu 2</a>
+                <a>Library</a>
+              </li>
+              <li>
+                <a>Resources</a>
               </li>
             </ul>
           </li>
           <li>
-            <a>Item 3</a>
+            <a>Projects</a>
+          </li>
+          <li>
+            <a>About</a>
           </li>
         </ul>
       </div>
