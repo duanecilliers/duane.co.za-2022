@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 const Footer: FC = () => {
   return (
-    <footer className="footer p-10 bg-neutral text-neutral-content flex justify-between">
+    <footer className="footer p-10 flex justify-between">
       <div>
         <h3 className="text-lg font-primary mb-2">Socials</h3>
         <div className="grid grid-flow-col gap-4">

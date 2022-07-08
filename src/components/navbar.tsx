@@ -39,6 +39,9 @@ const Navbar: FC<{}> = () => {
           <li>
             <a>About</a>
           </li>
+          <li className="flex flex-col justify-center">
+            <input type="checkbox" className="toggle toggle-sm" checked />
+          </li>
         </ul>
       </div>
     </div>
