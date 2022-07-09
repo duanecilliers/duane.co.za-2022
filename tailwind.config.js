@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
@@ -17,9 +18,11 @@ module.exports = {
       {
         light: {
           ...require('daisyui/src/colors/themes')['[data-theme=winter]'],
+          'base-content': colors.sky[800],
         },
         dark: {
           ...require('daisyui/src/colors/themes')['[data-theme=luxury]'],
+          'base-content': colors.amber[500],
         },
       },
     ],

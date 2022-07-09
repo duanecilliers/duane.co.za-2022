@@ -13,9 +13,9 @@ const Navbar: FC<{}> = () => {
   }
 
   return (
-    <div className="navbar bg-base-100 fixed top-0">
+    <div className="navbar bg-base-100 fixed top-0 z-10">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl font-primary tracking-tighter">DC</a>
+        <a className="btn btn-ghost normal-case text-xl font-primary tracking-[-0.25em]">DC</a>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0">
@@ -51,7 +51,7 @@ const Navbar: FC<{}> = () => {
             <a>About</a>
           </li>
           <li
-            className="flex flex-col justify-center ml-2 mr-4 tooltip tooltip-bottom"
+            className="hidden md:flex flex-col justify-center ml-2 mr-4 tooltip tooltip-bottom"
             data-tip={activeTheme === 'dark' ? 'Light mode' : 'Dark mode'}
           >
             <input
