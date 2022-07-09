@@ -46,13 +46,13 @@ export type ContributionsData = {
 const getColor = (level: ContributionLevel, theme: 'dark' | 'light') => {
   switch (level) {
     case 'FIRST_QUARTILE':
-      return theme === 'dark' ? colors.amber[900] : colors.sky[200]
+      return theme === 'dark' ? colors.stone[900] : colors.sky[200]
     case 'SECOND_QUARTILE':
       return theme === 'dark' ? colors.amber[800] : colors.sky[400]
     case 'THIRD_QUARTILE':
-      return theme === 'dark' ? colors.amber[600] : colors.sky[600]
+      return theme === 'dark' ? colors.amber[700] : colors.sky[600]
     case 'FOURTH_QUARTILE':
-      return theme === 'dark' ? colors.amber[500] : colors.sky[600]
+      return theme === 'dark' ? colors.amber[600] : colors.sky[600]
     case 'NONE':
     default:
       return 'transparent'
