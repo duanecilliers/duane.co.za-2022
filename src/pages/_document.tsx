@@ -4,7 +4,7 @@ import Footer from '../components/footer'
 class MyDocument extends Document {
   render() {
     return (
-      <Html data-theme="luxury">
+      <Html>
         <Head>
           <meta name="description" content="Frontend Developer" />
           <link rel="icon" href="/favicon.ico" />

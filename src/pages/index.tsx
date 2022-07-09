@@ -4,7 +4,7 @@ import Navbar from '../components/navbar'
 
 const Home: NextPage = () => {
   return (
-    <>
+    <div>
       <Head>
         <title>Duane Cilliers</title>
       </Head>
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </main>
-    </>
+    </div>
   )
 }
 

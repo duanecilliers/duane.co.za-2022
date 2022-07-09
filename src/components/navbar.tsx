@@ -1,10 +1,16 @@
-import { useAtom } from 'jotai'
+import { useTheme } from 'next-themes'
 import { FC } from 'react'
-import darkModeAtom from '../state/dark-mode'
 
 const Navbar: FC<{}> = () => {
-  const [darkMode, setDarkMode] = useAtom(darkModeAtom)
-  const toggleDarkMode = () => setDarkMode(!darkMode)
+  const { theme, systemTheme, setTheme } = useTheme()
+  const activeTheme = theme === 'system' ? systemTheme : theme
+  const toggleDarkMode = () => {
+    if (theme === 'system') {
+      setTheme(systemTheme === 'dark' ? 'light' : 'dark')
+    } else {
+      setTheme(theme === 'dark' ? 'light' : 'dark')
+    }
+  }
 
   return (
     <div className="navbar bg-base-100 fixed top-0">
@@ -45,7 +51,12 @@ const Navbar: FC<{}> = () => {
             <a>About</a>
           </li>
           <li className="flex flex-col justify-center">
-            <input type="checkbox" className="toggle toggle-sm" checked={darkMode} onChange={toggleDarkMode} />
+            <input
+              type="checkbox"
+              className="toggle toggle-sm"
+              checked={activeTheme === 'dark'}
+              onChange={toggleDarkMode}
+            />
           </li>
         </ul>
       </div>

@@ -8,11 +8,20 @@ module.exports = {
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
   daisyui: {
     styled: true,
-    themes: true,
     base: true,
     utils: true,
     logs: true,
     rtl: false,
     prefix: '',
+    themes: [
+      {
+        light: {
+          ...require('daisyui/src/colors/themes')['[data-theme=winter]'],
+        },
+        dark: {
+          ...require('daisyui/src/colors/themes')['[data-theme=luxury]'],
+        },
+      },
+    ],
   },
 }
