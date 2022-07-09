@@ -19,7 +19,7 @@ const Navbar: FC<{}> = () => {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0">
-          <li tabIndex={0}>
+          {/* <li tabIndex={0}>
             <a>
               My Garden
               <svg
@@ -43,13 +43,13 @@ const Navbar: FC<{}> = () => {
                 <a>Resources</a>
               </li>
             </ul>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <a>Projects</a>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <a>About</a>
-          </li>
+          </li> */}
           <li
             className="hidden md:flex flex-col justify-center ml-2 mr-4 tooltip tooltip-bottom"
             data-tip={activeTheme === 'dark' ? 'Light mode' : 'Dark mode'}
