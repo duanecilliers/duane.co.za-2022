@@ -1,29 +1,12 @@
-// import { useAtom } from 'jotai'
 import { useTheme } from 'next-themes'
 import { useEffect } from 'react'
-// import contributionsAtom from '../state/contributions.atom'
-import { drawContributions, ContributionsCollection, ContributionsData } from '../utils/github'
+import { drawContributions } from '../utils/github'
 import { trpc } from '../utils/trpc'
 
 const Hero = () => {
-  // const [contributionsState, setContributionsState] = useAtom(contributionsAtom)
-  // const now = Date.now()
-  const contributions = trpc.useQuery(['github.contributions'])
-
-  // const hasFetchWithin12Hours =
-  //   contributionsState.lastFetched !== null && (contributionsState.lastFetched - now) / (60 * 60 * 1000) < 12
-
-  /** @todo hyrade query from localStorage to prevent unecessary requests */
-  // if (contributions.status === 'success') {
-  //   setContributionsState({ lastFetched: now, contributions: contributions.data.contributions })
-  // }
-
-  // if (!hasFetchWithin12Hours) {
-  //   if (contributions.status === 'success') {
-  //     console.log('saving contributions...................')
-  //     setContributionsState({ lastFetched: now, contributions: contributions.data.contributions })
-  //   }
-  // }
+  const contributions = trpc.useQuery(['github.contributions'], {
+    refetchOnWindowFocus: false,
+  })
 
   const { theme, systemTheme } = useTheme()
   const activeTheme: any = theme === 'system' ? systemTheme : theme
@@ -31,8 +14,6 @@ const Hero = () => {
   useEffect(() => {
     const contributionsCanvas = document.getElementById('contributions-canvas') as HTMLCanvasElement
 
-    // const contributions = contributionsState.contributions?.data.user.contributionsCollection
-    // console.log('contributions', contributions)
     if (contributionsCanvas && contributions.status === 'success') {
       drawContributions(
         contributionsCanvas,
