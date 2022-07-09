@@ -1,6 +1,11 @@
+import { useAtom } from 'jotai'
 import { FC } from 'react'
+import darkModeAtom from '../state/dark-mode'
 
 const Navbar: FC<{}> = () => {
+  const [darkMode, setDarkMode] = useAtom(darkModeAtom)
+  const toggleDarkMode = () => setDarkMode(!darkMode)
+
   return (
     <div className="navbar bg-base-100 fixed top-0">
       <div className="flex-1">
@@ -40,7 +45,7 @@ const Navbar: FC<{}> = () => {
             <a>About</a>
           </li>
           <li className="flex flex-col justify-center">
-            <input type="checkbox" className="toggle toggle-sm" checked />
+            <input type="checkbox" className="toggle toggle-sm" checked={darkMode} onChange={toggleDarkMode} />
           </li>
         </ul>
       </div>
