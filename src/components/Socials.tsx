@@ -1,5 +1,5 @@
 const Socials = () => {
-  const classes = 'transition-all ease-in-out hover:scale-110 mr-6'
+  const classes = 'transition-all ease-in-out hover:scale-110 mr-6 p-2'
   return (
     <div className="flex">
       <a rel="me noreferrer" href="https://github.com/duanecilliers" target="_blank" className={classes}>
