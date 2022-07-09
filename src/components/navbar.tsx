@@ -50,7 +50,10 @@ const Navbar: FC<{}> = () => {
           <li>
             <a>About</a>
           </li>
-          <li className="flex flex-col justify-center">
+          <li
+            className="flex flex-col justify-center ml-2 mr-4 tooltip tooltip-bottom"
+            data-tip={activeTheme === 'dark' ? 'Light mode' : 'Dark mode'}
+          >
             <input
               type="checkbox"
               className="toggle toggle-sm"
