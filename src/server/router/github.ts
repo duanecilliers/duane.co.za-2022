@@ -38,11 +38,8 @@ async function getContributions(token: string, username: string): Promise<Contri
   return data as ContributionsData
 }
 
-const waitFor = async (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
-
 export const githubRouter = createRouter().query('contributions', {
   async resolve() {
-    await waitFor(5000) // wait for 5s to simulate a slow network
     const contributions = await getContributions(
       process.env.GITHUB_ACCESS_TOKEN as string,
       process.env.GITHUB_USERNAME as string,
