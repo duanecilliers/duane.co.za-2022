@@ -33,7 +33,7 @@ const Footer: FC = () => {
           <a className="link link-hover">Now</a>
         </div>
         <div className="flex flex-col leading-7 w-28">
-          <a className="link link-hover">Site build</a>
+          <a className="link link-hover">Etymology</a>
           <a className="link link-hover">Notes</a>
           <a className="link link-hover">Resources</a>
         </div>
