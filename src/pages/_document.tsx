@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta name="description" content="Frontend Developer" />
+          <meta name="description" content="Frontend Developer from Cape Town, South Africa" />
           <link rel="icon" href="/favicon.ico" />
           <link
             href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,900;1,400;1,900&amp;family=Slabo+13px&amp;display=swap"
