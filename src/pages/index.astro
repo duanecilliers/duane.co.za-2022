@@ -111,16 +111,22 @@ const { description } = AppConfig;
       background-position: 1000px center;
     }
 
-    .project-ekaya--img {
+    .project-ekaya {
       background-image: url('/assets/images/ekaya-bg.png');
       background-size: initial;
-      background-position: center 200px;
+      background-position: right 200px;
       background-repeat: no-repeat;
     }
   }
   @media (min-height: 1200px) {
-    .project-ekaya--img {
-      background-position: center bottom;
+    .project-ekaya {
+      background-position: right bottom;
+    }
+  }
+
+  @media (min-height: 1200px) and (min-width: 1280px) {
+    .project-ekaya {
+      background-position: 65% bottom;
     }
   }
 </style>
