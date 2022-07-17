@@ -1,21 +1,12 @@
-import { useTheme } from 'next-themes'
-import { FC } from 'react'
+import type { FC } from 'react';
 
 const Navbar: FC<{}> = () => {
-  const { theme, systemTheme, setTheme } = useTheme()
-  const activeTheme = theme === 'system' ? systemTheme : theme
-  const toggleDarkMode = () => {
-    if (theme === 'system') {
-      setTheme(systemTheme === 'dark' ? 'light' : 'dark')
-    } else {
-      setTheme(theme === 'dark' ? 'light' : 'dark')
-    }
-  }
-
   return (
-    <div className="navbar bg-base-100 fixed top-0 z-10">
+    <div className="navbar fixed top-0 z-10 bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl font-primary tracking-[-0.25em]">DC</a>
+        <a className="font-primary btn btn-ghost text-xl normal-case tracking-[-0.25em]">
+          DC
+        </a>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0">
@@ -50,7 +41,7 @@ const Navbar: FC<{}> = () => {
           {/* <li>
             <a>About</a>
           </li> */}
-          <li
+          {/* <li
             className="hidden md:flex flex-col justify-center ml-2 mr-4 tooltip tooltip-bottom"
             data-tip={activeTheme === 'dark' ? 'Light mode' : 'Dark mode'}
           >
@@ -60,11 +51,11 @@ const Navbar: FC<{}> = () => {
               checked={activeTheme === 'dark'}
               onChange={toggleDarkMode}
             />
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
