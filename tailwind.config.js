@@ -3,6 +3,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
+  darkMode: ['class', '[data-theme="dark"]'],
   content: [
     './src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}',
     './node_modules/astro-boilerplate-components/**/*.{js,ts,jsx,tsx}',
