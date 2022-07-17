@@ -9,6 +9,8 @@ const { description } = AppConfig;
 
 <Base head={{ title, description }}>
   <Hero />
+
+  <!-- reOS -->
   <div class='project-reos hero flex min-h-screen items-center justify-start'>
     <div class='z-10 mx-4 flex max-w-sm flex-col md:ml-20 xl:ml-96'>
       <h2 class='font-primary text-6xl font-bold'>
@@ -39,6 +41,43 @@ const { description } = AppConfig;
       &nbsp;
     </div>
   </div>
+
+  <!-- Ekaya -->
+  <div class='project-ekaya hero flex min-h-screen items-center justify-start'>
+    <div class='z-10 mx-4 flex max-w-sm flex-col md:ml-20 xl:ml-96'>
+      <h2 class='font-primary text-6xl font-bold'>
+        Ekaya <span class='text-xl font-bold'>2017 - 2019</span>
+      </h2>
+      <strong class='font-primary text-2xl font-bold text-white'
+        >TypeScript &amp; React
+      </strong>
+      <p class='py-8 text-white'>
+        I was apart of small team of developers responsible for reskinning the
+        VIP web app. I also integrated the bank statements upload feature.
+      </p>
+      <div class='flex items-end justify-between'>
+        <a
+          class='hover:text-primary-500 font-bold text-white underline'
+          href='#'
+          >View website
+        </a>
+        <p class='text-right text-white'>
+          <strong>Role: Frontend Engineer</strong><br />
+          Frontend development<br />
+          Backend development
+        </p>
+      </div>
+    </div>
+    <div class='project-ekaya--img hidden min-h-screen w-full lg:block'>
+      <div
+        class='flex h-full min-h-screen w-full items-center justify-center xl:hidden'
+      >
+        <div>
+          <img src='/assets/images/ekaya-graphic.png' alt='Ekaya graphic' />
+        </div>
+      </div>
+    </div>
+  </div>
 </Base>
 
 <style>
@@ -59,9 +98,34 @@ const { description } = AppConfig;
     z-index: 0;
   }
 
+  .project-ekaya {
+    background-color: #0a1720;
+  }
+  /* .project-ekaya--img {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/ekaya-app.png');
+    background-size: initial;
+    background-position: 100px center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  } */
+
   @media (min-width: 1280px) {
     .project-reos {
       background-position: 1000px center;
+    }
+
+    .project-ekaya--img {
+      background-image: url('/assets/images/ekaya-bg.png');
+      background-size: initial;
+      background-position: center 200px;
+      background-repeat: no-repeat;
+    }
+  }
+  @media (min-height: 1200px) {
+    .project-ekaya--img {
+      background-position: center bottom;
     }
   }
 </style>

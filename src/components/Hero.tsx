@@ -53,9 +53,18 @@ const Hero = () => {
               >
                 Trust My Travel
               </a>
-              . Exploring advanced TypeScript, creative development and toying
-              with the latest tech. This is where I&apos;ll be planting the
-              seeds for my Digital Garden.
+              . Exploring advanced TypeScript, creative development and
+              experimenting with the latest tech. This is where I&apos;ll be
+              planting the seeds for my{' '}
+              <a
+                className="link font-bold"
+                href="https://maggieappleton.com/garden-history"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Digital Garden
+              </a>
+              .
             </p>
             <Socials />
           </div>
