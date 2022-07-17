@@ -34,7 +34,7 @@ const Hero = () => {
               </span>
               Frontend Developer Based in Cape Town.
             </h1>
-            <p className="py-6 leading-7 text-black dark:text-white text-sm md:text-xl">
+            <p className="py-6 leading-7 text-white text-sm md:text-xl">
               Currently working at{' '}
               <a
                 className="link font-bold"

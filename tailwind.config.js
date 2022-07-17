@@ -31,7 +31,7 @@ module.exports = {
         },
         dark: {
           ...require('daisyui/src/colors/themes')['[data-theme=luxury]'],
-          'base-content': colors.amber[500],
+          'base-content': '#F0734B',
         },
       },
     ],
