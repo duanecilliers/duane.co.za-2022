@@ -1,4 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, global-require */
+
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   content: [
     './src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}',
@@ -9,6 +12,27 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
+    require('daisyui'),
     require('@tailwindcss/typography'),
   ],
+  daisyui: {
+    styled: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: '',
+    themes: [
+      {
+        light: {
+          ...require('daisyui/src/colors/themes')['[data-theme=winter]'],
+          'base-content': colors.sky[800],
+        },
+        dark: {
+          ...require('daisyui/src/colors/themes')['[data-theme=luxury]'],
+          'base-content': colors.amber[500],
+        },
+      },
+    ],
+  },
 };
