@@ -52,11 +52,11 @@ const getColor = (level: ContributionLevel, theme: 'dark' | 'light') => {
     case 'NONE':
       return theme === 'dark' ? colors.stone[900] : colors.sky[600];
     case 'SECOND_QUARTILE':
-      return theme === 'dark' ? colors.amber[700] : colors.sky[400];
+      return theme === 'dark' ? colors.orange[700] : colors.sky[400];
     case 'THIRD_QUARTILE':
-      return theme === 'dark' ? colors.amber[500] : colors.sky[600];
+      return theme === 'dark' ? colors.orange[500] : colors.sky[600];
     case 'FOURTH_QUARTILE':
-      return theme === 'dark' ? colors.amber[300] : colors.sky[600];
+      return theme === 'dark' ? colors.orange[300] : colors.sky[600];
     default:
       return 'transparent';
   }
