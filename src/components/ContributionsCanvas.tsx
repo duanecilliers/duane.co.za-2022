@@ -9,6 +9,11 @@ type Props = {
 
 let lastTime = 0;
 
+function moveElement(array: any[], initialIndex: number, finalIndex: number) {
+  array.splice(finalIndex, 0, array.splice(initialIndex, 1)[0]);
+  return array;
+}
+
 const ContributionsCanvas = ({ contributionWeeks }: Props) => {
   const weeks = useRef<WeekContribution>(contributionWeeks);
   // const [weeks, setWeeks] = useState<WeekContribution>(contributionWeeks);
@@ -28,9 +33,11 @@ const ContributionsCanvas = ({ contributionWeeks }: Props) => {
   const animateData = useCallback(
     (time: number) => {
       // console.log(('prevTime', prevTime), ('time', time));
-      if (!lastTime || time - 250 > lastTime) {
+      if (!lastTime || time - 1000 / 5 > lastTime) {
         lastTime = time;
-        weeks.current = weeks.current.slice(1, weeks.current.length);
+        if (weeks.current !== undefined) {
+          weeks.current = moveElement(weeks.current, 0, weeks.current.length);
+        }
         drawCanvas();
       }
     },
