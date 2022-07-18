@@ -1,5 +1,4 @@
 import { splitEvery } from 'ramda';
-import colors from 'tailwindcss/colors';
 
 export async function getContributions(
   token: string,
@@ -56,13 +55,13 @@ const getColor = (level: ContributionLevel, theme: 'dark' | 'light') => {
   switch (level) {
     case 'FIRST_QUARTILE':
     case 'NONE':
-      return theme === 'dark' ? colors.stone[900] : colors.sky[600];
+      return theme === 'dark' ? '#1c1917' : '#0284c7';
     case 'SECOND_QUARTILE':
-      return theme === 'dark' ? colors.orange[700] : colors.sky[400];
+      return theme === 'dark' ? '#c2410c' : '#38bdf8';
     case 'THIRD_QUARTILE':
-      return theme === 'dark' ? colors.orange[500] : colors.sky[600];
+      return theme === 'dark' ? '#f97316' : '#0284c7';
     case 'FOURTH_QUARTILE':
-      return theme === 'dark' ? colors.orange[300] : colors.sky[600];
+      return theme === 'dark' ? '#fdba74' : '#0284c7';
     default:
       return 'transparent';
   }
