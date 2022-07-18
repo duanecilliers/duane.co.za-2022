@@ -1,24 +1,43 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
+import useAnimationFrame from '@/hooks/useAnimationFrame';
 import { drawContributions } from '@/modules/github/contributions';
 
 type Props = {
-  contributions: ContributionsData;
+  contributionWeeks: WeekContribution;
 };
 
-const ContributionsCanvas = ({ contributions }: Props) => {
-  useEffect(() => {
+let lastTime = 0;
+
+const ContributionsCanvas = ({ contributionWeeks }: Props) => {
+  const weeks = useRef<WeekContribution>(contributionWeeks);
+  // const [weeks, setWeeks] = useState<WeekContribution>(contributionWeeks);
+
+  const drawCanvas = () => {
     const contributionsCanvas = document.getElementById(
       'contributions-canvas'
     ) as HTMLCanvasElement;
-    if (contributionsCanvas && contributions) {
-      drawContributions(
-        contributionsCanvas,
-        contributions.data.user.contributionsCollection,
-        'dark'
-      );
+
+    if (contributionsCanvas && contributionWeeks) {
+      drawContributions(contributionsCanvas, weeks.current, 'dark');
     }
-  });
+  };
+
+  useEffect(drawCanvas, []);
+
+  const animateData = useCallback(
+    (time: number) => {
+      // console.log(('prevTime', prevTime), ('time', time));
+      if (!lastTime || time - 250 > lastTime) {
+        lastTime = time;
+        weeks.current = weeks.current.slice(1, weeks.current.length);
+        drawCanvas();
+      }
+    },
+    [weeks]
+  );
+
+  useAnimationFrame(animateData);
 
   return (
     <canvas

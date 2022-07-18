@@ -2,31 +2,36 @@ import colors from 'tailwindcss/colors';
 
 export async function getContributions(
   token: string,
-  username: string
+  username: string,
+  from: string = new Date('2012-01-01').toISOString(),
+  to: string = new Date('2013-01-01').toISOString()
 ): Promise<ContributionsData> {
   const headers = {
     Authorization: `bearer ${token}`,
   };
   const body = {
     query: `query {
-            user(login: "${username}") {
-              name
-              contributionsCollection {
-                contributionCalendar {
-                  totalContributions
-                  weeks {
-                    contributionDays {
-                      contributionCount
-                      date
-                      weekday
-                      contributionLevel
+              user(login: "${username}") {
+                name
+                contributionsCollection(
+                  from: "${from}"
+                  to: "${to}"
+                ) {
+                  contributionCalendar {
+                    totalContributions
+                    weeks {
+                      contributionDays {
+                        contributionCount
+                        date
+                        weekday
+                        contributionLevel
+                      }
+                      firstDay
                     }
-                    firstDay
                   }
                 }
               }
-            }
-          }`,
+            }`,
   };
   const response = await fetch('https://api.github.com/graphql', {
     method: 'POST',
@@ -64,7 +69,7 @@ const getColor = (level: ContributionLevel, theme: 'dark' | 'light') => {
 
 export function drawContributions(
   canvas: HTMLCanvasElement,
-  data: ContributionsCollection,
+  data: WeekContribution,
   theme: 'dark' | 'light' = 'dark'
 ) {
   const offsetX = 0;
@@ -75,11 +80,8 @@ export function drawContributions(
   const canvasMargin = 0;
   const weekHeight = (boxWidth + boxMargin) * 8 + canvasMargin;
   const scaleFactor = getPixelRatio();
-  const height =
-    data.contributionCalendar.weeks.length * weekHeight + canvasMargin + 10;
-  const width =
-    data.contributionCalendar.weeks.length * (boxWidth + boxMargin) +
-    canvasMargin * 2;
+  const height = 53 * weekHeight + canvasMargin + 10;
+  const width = 53 * (boxWidth + boxMargin) + canvasMargin * 2;
 
   // eslint-disable-next-line no-param-reassign
   canvas.width = width * scaleFactor;
@@ -93,7 +95,7 @@ export function drawContributions(
 
   ctx.scale(scaleFactor, scaleFactor);
 
-  data.contributionCalendar.weeks.forEach((week, x) => {
+  data.forEach((week, x) => {
     week.contributionDays.forEach((day, y) => {
       ctx.fillStyle = getColor(day.contributionLevel, theme);
       ctx.fillRect(

@@ -31,3 +31,8 @@ type ContributionsData = {
     };
   };
 };
+
+type ContributionsByYear = Array<{
+  year: number;
+  contributions: ContributionsData;
+}>;

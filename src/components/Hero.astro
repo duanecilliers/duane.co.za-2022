@@ -1,27 +1,57 @@
 ---
-import Socials from '@/components/Socials';
-import { getContributions } from '@/modules/github/contributions';
+import Socials from "@/components/Socials";
+// import { getContributions } from "@/modules/github/contributions";
+import contributionsByYear from '@/data/contributionsByYear.json';
 
-import ContributionsCanvas from './ContributionsCanvas';
+import ContributionsCanvas from "./ContributionsCanvas";
 
-const ghUsername = import.meta.env.GITHUB_USERNAME;
-const ghToken = import.meta.env.GITHUB_ACCESS_TOKEN;
-const contributions = await getContributions(ghToken, ghUsername);
+// const ghUsername = import.meta.env.GITHUB_USERNAME;
+// const ghToken = import.meta.env.GITHUB_ACCESS_TOKEN;
+// const day = new Date(Date.now()).getDate();
+// const month = new Date().getMonth();
+// const dayString = day < 10 ? `0${day}` : day;
+// const monthString = month < 10 ? `0${month}` : new Date().getMonth();
+// /** @todo build array dynamically (current - 10) */
+// const years = [
+//   2012,
+//   2013,
+//   2014,
+//   2015,
+//   2016,
+//   2017,
+//   2018,
+//   2019,
+//   2020,
+//   2021,
+// ];
+// const contributionsByYear: ContributionsByYear = await Promise.all(years.map(async (year) => {
+//   const contributions = await getContributions(
+//     ghToken,
+//     ghUsername,
+//     new Date(`${year}-${monthString}-${dayString}`).toISOString(),
+//     new Date(`${year + 1}-${monthString}-${dayString}`).toISOString()
+//   );
+//   return {
+//     year, contributions
+//   };
+// }));
+
+const contributionWeeks = (contributionsByYear).map(({ contributions }) =>
+  contributions.data.user.contributionsCollection.contributionCalendar.weeks
+).flat();
 ---
 
 <div>
   <div class="hero min-h-screen min-w-screen">
-    <ContributionsCanvas client:only contributions={contributions} />
+    <ContributionsCanvas client:only contributionWeeks={contributionWeeks as any} />
     <div class="hero-content">
       <div class="max-w-2xl">
         <h1 class="text-3xl md:text-6xl font-bold font-primary">
-          <span class="text-xl md:text-2xl mb-2 block">
-            Duane Cilliers
-          </span>
+          <span class="text-xl md:text-2xl mb-2 block"> Duane Cilliers</span>
           Frontend Developer Based in Cape Town.
         </h1>
         <p class="py-6 leading-7 text-white text-sm md:text-xl">
-          Currently working at{' '}
+          Currently working at{" "}
           <a
             class="link font-bold"
             href="https://reos.co.za/"
@@ -39,9 +69,9 @@ const contributions = await getContributions(ghToken, ghUsername);
           >
             Trust My Travel
           </a>
-          . Exploring advanced TypeScript, creative development and
-          experimenting with the latest tech. This is where I&apos;ll be
-          planting the seeds for my{' '}
+          . Exploring advanced TypeScript, creative development and experimenting
+          with the latest tech. This is where I&apos;ll be planting the seeds for
+          my{" "}
           <a
             class="link font-bold"
             href="https://maggieappleton.com/garden-history"
