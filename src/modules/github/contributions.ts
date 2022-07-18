@@ -46,16 +46,17 @@ const getPixelRatio = () => {
 };
 
 const getColor = (level: ContributionLevel, theme: 'dark' | 'light') => {
+  // console.log('level', level);
   switch (level) {
     case 'FIRST_QUARTILE':
-      return theme === 'dark' ? colors.stone[900] : colors.sky[200];
-    case 'SECOND_QUARTILE':
-      return theme === 'dark' ? colors.amber[800] : colors.sky[400];
-    case 'THIRD_QUARTILE':
-      return theme === 'dark' ? colors.amber[700] : colors.sky[600];
-    case 'FOURTH_QUARTILE':
-      return theme === 'dark' ? colors.amber[600] : colors.sky[600];
     case 'NONE':
+      return theme === 'dark' ? colors.stone[900] : colors.sky[600];
+    case 'SECOND_QUARTILE':
+      return theme === 'dark' ? colors.amber[700] : colors.sky[400];
+    case 'THIRD_QUARTILE':
+      return theme === 'dark' ? colors.amber[500] : colors.sky[600];
+    case 'FOURTH_QUARTILE':
+      return theme === 'dark' ? colors.amber[300] : colors.sky[600];
     default:
       return 'transparent';
   }
@@ -70,13 +71,13 @@ export function drawContributions(
   const offsetY = 0;
   const boxWidth = 15;
   const boxMargin = 2;
-  const boxHeight = 1030;
+  const boxHeight = 1020;
   const canvasMargin = 0;
   const weekHeight = (boxWidth + boxMargin) * 8 + canvasMargin;
   const scaleFactor = getPixelRatio();
   const height =
     data.contributionCalendar.weeks.length * weekHeight + canvasMargin + 10;
-  const width = 53 * (boxWidth + boxMargin) + canvasMargin * 2;
+  const width = 52 * (boxWidth + boxMargin) + canvasMargin * 2;
 
   // eslint-disable-next-line no-param-reassign
   canvas.width = width * scaleFactor;
