@@ -26,7 +26,7 @@ const ContributionsCanvas = ({ contributions }: Props) => {
       width={200}
       height={200}
       // className="lg:block w-screen h-screen absolute opacity-10 top-0 left-0 z-0 pt-48"
-      className="lg:block w-screen h-screen absolute top-0 left-0 z-0 pt-48"
+      className="lg:block w-screen h-screen absolute top-0 left-0 z-0"
     />
   );
 };

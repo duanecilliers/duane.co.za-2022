@@ -45,13 +45,6 @@ const getPixelRatio = () => {
   return window.devicePixelRatio || 1;
 };
 
-const boxWidth = 15;
-const boxMargin = 2;
-const boxHeight = 800;
-const canvasMargin = 0;
-const weekHeight = (boxWidth + boxMargin) * 8 + canvasMargin;
-const scaleFactor = getPixelRatio();
-
 const getColor = (level: ContributionLevel, theme: 'dark' | 'light') => {
   switch (level) {
     case 'FIRST_QUARTILE':
@@ -75,6 +68,12 @@ export function drawContributions(
 ) {
   const offsetX = 0;
   const offsetY = 0;
+  const boxWidth = 15;
+  const boxMargin = 2;
+  const boxHeight = 1030;
+  const canvasMargin = 0;
+  const weekHeight = (boxWidth + boxMargin) * 8 + canvasMargin;
+  const scaleFactor = getPixelRatio();
   const height =
     data.contributionCalendar.weeks.length * weekHeight + canvasMargin + 10;
   const width = 53 * (boxWidth + boxMargin) + canvasMargin * 2;
