@@ -11,7 +11,7 @@ const { description } = AppConfig;
   <Hero />
 
   <!-- reOS -->
-  <div class='project-reos hero flex min-h-screen items-center justify-start'>
+  <div class='project-section project-reos hero flex min-h-screen items-center justify-start'>
     <div class='z-10 mx-4 flex max-w-sm flex-col md:ml-20 xl:ml-96'>
       <h2 class='font-primary text-6xl font-bold'>
         reOS <span class='text-xl font-bold'>2018 - present</span>
@@ -45,7 +45,7 @@ const { description } = AppConfig;
   </div>
 
   <!-- TMT -->
-  <div class='project-tmt hero flex min-h-screen items-center justify-start'>
+  <div class='project-section project-tmt hero flex min-h-screen items-center justify-start'>
     <div class='z-10 mx-4 flex max-w-sm flex-col md:ml-20 xl:ml-96'>
       <h2 class='font-primary text-6xl font-bold'>
         TMT <span class='text-xl font-bold'>2018 - present</span>
@@ -82,7 +82,7 @@ const { description } = AppConfig;
   </div>
 
   <!-- Ekaya -->
-  <div class='project-ekaya hero flex min-h-screen items-center justify-start'>
+  <div class='project-section project-ekaya hero flex min-h-screen items-center justify-start'>
     <div class='z-10 mx-4 flex max-w-sm flex-col md:ml-20 xl:ml-96'>
       <h2 class='font-primary text-6xl font-bold'>
         Ekaya <span class='text-xl font-bold'>2017 - 2019</span>
@@ -122,6 +122,10 @@ const { description } = AppConfig;
 </Base>
 
 <style>
+
+  .project-section {
+    box-shadow: inset 0em 8em 15em rgb(0 0 0 / 50%);
+  }
   .project-reos {
     background-color: #000621;
   }
