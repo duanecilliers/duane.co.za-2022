@@ -1,19 +1,14 @@
 ---
-import Hero from '@/components/Hero';
-import { getContributions } from '@/modules/github/contributions';
+import Hero from '@/components/Hero.astro';
 import Base from '@/templates/Base.astro';
 import { AppConfig } from '@/utils/AppConfig';
 
 const { title } = AppConfig;
 const { description } = AppConfig;
-
-const ghUsername = import.meta.env.GITHUB_USERNAME;
-const ghToken = import.meta.env.GITHUB_ACCESS_TOKEN;
-const contributions = await getContributions(ghToken, ghUsername);
 ---
 
 <Base head={{ title, description }}>
-  <Hero client:only contributions={contributions} />
+  <Hero />
 
   <!-- reOS -->
   <div class='project-reos hero flex min-h-screen items-center justify-start'>
