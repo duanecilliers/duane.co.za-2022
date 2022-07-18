@@ -1,40 +1,39 @@
 ---
 import Socials from "@/components/Socials";
-// import { getContributions } from "@/modules/github/contributions";
-import contributionsByYear from '@/data/contributionsByYear.json';
+import { getContributions } from "@/modules/github/contributions";
 
 import ContributionsCanvas from "./ContributionsCanvas";
 
-// const ghUsername = import.meta.env.GITHUB_USERNAME;
-// const ghToken = import.meta.env.GITHUB_ACCESS_TOKEN;
-// const day = new Date(Date.now()).getDate();
-// const month = new Date().getMonth();
-// const dayString = day < 10 ? `0${day}` : day;
-// const monthString = month < 10 ? `0${month}` : new Date().getMonth();
-// /** @todo build array dynamically (current - 10) */
-// const years = [
-//   2012,
-//   2013,
-//   2014,
-//   2015,
-//   2016,
-//   2017,
-//   2018,
-//   2019,
-//   2020,
-//   2021,
-// ];
-// const contributionsByYear: ContributionsByYear = await Promise.all(years.map(async (year) => {
-//   const contributions = await getContributions(
-//     ghToken,
-//     ghUsername,
-//     new Date(`${year}-${monthString}-${dayString}`).toISOString(),
-//     new Date(`${year + 1}-${monthString}-${dayString}`).toISOString()
-//   );
-//   return {
-//     year, contributions
-//   };
-// }));
+const ghUsername = import.meta.env.GITHUB_USERNAME;
+const ghToken = import.meta.env.GITHUB_ACCESS_TOKEN;
+const day = new Date(Date.now()).getDate();
+const month = new Date().getMonth();
+const dayString = day < 10 ? `0${day}` : day;
+const monthString = month < 10 ? `0${month}` : new Date().getMonth();
+/** @todo build array dynamically (current - 10) */
+const years = [
+  2012,
+  2013,
+  2014,
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+];
+const contributionsByYear: ContributionsByYear = await Promise.all(years.map(async (year) => {
+  const contributions = await getContributions(
+    ghToken,
+    ghUsername,
+    new Date(`${year}-${monthString}-${dayString}`).toISOString(),
+    new Date(`${year + 1}-${monthString}-${dayString}`).toISOString()
+  );
+  return {
+    year, contributions
+  };
+}));
 
 const contributionWeeks = (contributionsByYear).map(({ contributions }) =>
   contributions.data.user.contributionsCollection.contributionCalendar.weeks
