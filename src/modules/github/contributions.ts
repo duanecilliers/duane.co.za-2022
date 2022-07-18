@@ -1,3 +1,4 @@
+import { splitEvery } from 'ramda';
 import colors from 'tailwindcss/colors';
 
 export async function getContributions(
@@ -69,7 +70,7 @@ const getColor = (level: ContributionLevel, theme: 'dark' | 'light') => {
 
 export function drawContributions(
   canvas: HTMLCanvasElement,
-  data: WeekContribution,
+  data: DayContribution[],
   theme: 'dark' | 'light' = 'dark'
 ) {
   const offsetX = 0;
@@ -93,10 +94,12 @@ export function drawContributions(
     throw new Error('Could not get 2d context from Canvas');
   }
 
+  const weeks = splitEvery(7, data);
+
   ctx.scale(scaleFactor, scaleFactor);
 
-  data.forEach((week, x) => {
-    week.contributionDays.forEach((day, y) => {
+  weeks.forEach((days, x) => {
+    days.forEach((day, y) => {
       ctx.fillStyle = getColor(day.contributionLevel, theme);
       ctx.fillRect(
         offsetX + (boxWidth + boxMargin) * x,

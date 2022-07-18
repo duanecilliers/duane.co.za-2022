@@ -39,11 +39,15 @@ import ContributionsCanvas from "./ContributionsCanvas";
 const contributionWeeks = (contributionsByYear).map(({ contributions }) =>
   contributions.data.user.contributionsCollection.contributionCalendar.weeks
 ).flat();
+
+const contributionDays = contributionWeeks.map(({ contributionDays }) =>
+  contributionDays
+).flat();
 ---
 
 <div>
   <div class="hero min-h-screen min-w-screen">
-    <ContributionsCanvas client:only contributionWeeks={contributionWeeks as any} />
+    <ContributionsCanvas client:only contributionDays={contributionDays as any} />
     <div class="hero-content">
       <div class="max-w-2xl">
         <h1 class="text-3xl md:text-6xl font-bold font-primary">
