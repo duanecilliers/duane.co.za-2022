@@ -1,21 +1,27 @@
 // import { drawContributions } from '../utils/github'
 // import { useEffect } from '@astrojs/react';
+import { useEffect } from 'react';
+
 import Socials from '@/components/Socials';
+import { drawContributions } from '@/modules/github/contributions';
 
-const Hero = () => {
-  // const activeTheme: string = 'dark';
+type Props = {
+  contributions: ContributionsData;
+};
 
-  // useEffect(() => {
-  //   const contributionsCanvas = document.getElementById('contributions-canvas') as HTMLCanvasElement
-
-  //   if (contributionsCanvas && contributions.status === 'success') {
-  //     drawContributions(
-  //       contributionsCanvas,
-  //       contributions.data.contributions.data.user.contributionsCollection,
-  //       activeTheme,
-  //     )
-  //   }
-  // }, [activeTheme, contributions])
+const Hero = ({ contributions }: Props) => {
+  useEffect(() => {
+    const contributionsCanvas = document.getElementById(
+      'contributions-canvas'
+    ) as HTMLCanvasElement;
+    if (contributionsCanvas && contributions) {
+      drawContributions(
+        contributionsCanvas,
+        contributions.data.user.contributionsCollection,
+        'dark'
+      );
+    }
+  });
 
   return (
     <div>
