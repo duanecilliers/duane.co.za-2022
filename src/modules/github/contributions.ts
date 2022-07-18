@@ -77,7 +77,9 @@ export function drawContributions(
   const scaleFactor = getPixelRatio();
   const height =
     data.contributionCalendar.weeks.length * weekHeight + canvasMargin + 10;
-  const width = 52 * (boxWidth + boxMargin) + canvasMargin * 2;
+  const width =
+    data.contributionCalendar.weeks.length * (boxWidth + boxMargin) +
+    canvasMargin * 2;
 
   // eslint-disable-next-line no-param-reassign
   canvas.width = width * scaleFactor;
