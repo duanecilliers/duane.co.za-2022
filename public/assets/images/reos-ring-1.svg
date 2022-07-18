@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080px" height="1080px" viewBox="0 0 1080 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Robin / Ring-SVG</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="79.7228545%" y1="91.5669135%" x2="20.4392977%" y2="5.86389175%" id="linearGradient-1">
+            <stop stop-color="#22D6B2" offset="0%"></stop>
+            <stop stop-color="#0CACCC" offset="11.7828254%"></stop>
+            <stop stop-color="#056DBA" offset="26.0974922%"></stop>
+            <stop stop-color="#8A08E0" offset="41.4564181%"></stop>
+            <stop stop-color="#D61D88" offset="50.5168341%"></stop>
+            <stop stop-color="#DD0117" offset="65.6701102%"></stop>
+            <stop stop-color="#FF6D21" offset="87.8510346%"></stop>
+            <stop stop-color="#FFC91C" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Robin-/-Ring" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M540,120 C771.959595,120 960,308.040405 960,540 C960,771.959595 771.959595,960 540,960 C308.040405,960 120,771.959595 120,540 C120,308.040405 308.040405,120 540,120 Z M540.482759,190.482759 C347.183096,190.482759 190.482759,347.183096 190.482759,540.482759 C190.482759,733.782421 347.183096,890.482759 540.482759,890.482759 C733.782421,890.482759 890.482759,733.782421 890.482759,540.482759 C890.482759,347.183096 733.782421,190.482759 540.482759,190.482759 Z" id="Combined-Shape" fill="url(#linearGradient-1)" opacity="0.64"></path>
+        <path d="M540,60 C805.09668,60 1020,274.90332 1020,540 C1020,805.09668 805.09668,1020 540,1020 C274.90332,1020 60,805.09668 60,540 C60,274.90332 274.90332,60 540,60 Z M540,140 C319.0861,140 140,319.0861 140,540 C140,760.9139 319.0861,940 540,940 C760.9139,940 940,760.9139 940,540 C940,319.0861 760.9139,140 540,140 Z" id="Combined-Shape" fill="url(#linearGradient-1)"></path>
+    </g>
+</svg>

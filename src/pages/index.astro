@@ -111,10 +111,10 @@ const { description } = AppConfig;
     </div>
     <div class='project-ekaya--img hidden min-h-screen w-full lg:block'>
       <div
-        class='flex h-full min-h-screen w-full items-center justify-center xl:hidden'
+        class='flex h-full min-h-screen w-full items-center justify-center'
       >
         <div>
-          <img src='/assets/images/ekaya-graphic.png' alt='Ekaya graphic' />
+          <img src='/assets/images/ekaya-app.png' alt='Ekaya graphic' />
         </div>
       </div>
     </div>
@@ -124,10 +124,6 @@ const { description } = AppConfig;
 <style>
   .project-reos {
     background-color: #000621;
-    background-image: url('/assets/images/reos-ring.svg');
-    background-size: initial;
-    background-position: 440px center;
-    background-repeat: no-repeat;
   }
   .project-reos--img {
     width: 100%;
@@ -138,43 +134,64 @@ const { description } = AppConfig;
     background-repeat: no-repeat;
     z-index: 0;
   }
+  @media (min-width: 768px) {
+    .project-reos {
+      background-image: url('/assets/images/reos-ring.svg');
+      background-size: 50%;
+      background-position: top right;
+      background-repeat: no-repeat;
+    }
+  }
 
-  .project-ekaya {
-    background-color: #0a1720;
+  @media (min-width: 1280px) {
+    .project-reos {
+      background-size: 40%;
+    }
+  }
+
+  @media (min-width: 2000px) {
+    .project-reos--img {
+      background-position: center;
+    }
   }
 
   .project-tmt {
     background-color: #011829;
   }
 
-  @media (min-width: 1280px) {
-    .project-reos {
-      background-position: 1000px center;
-    }
+  .project-tmt--img {
+    background-image: url('/assets/images/tmt-bg.svg');
+    background-size: 100%;
+    background-position: top right;
+    background-repeat: no-repeat;
+  }
 
+  @media (min-width: 1280px) {
+    .project-tmt--img {
+      background-size: 50%;
+    }
+  }
+
+  .project-ekaya {
+    background-color: #0a1720;
+  }
+
+  @media (min-width: 768px) {
     .project-ekaya {
-      background-image: url('/assets/images/ekaya-bg.png');
-      background-size: initial;
-      background-position: right 200px;
+      background-image: url('/assets/images/ekaya-bg.svg');
+      background-size: 70%;
+      background-position: top right;
       background-repeat: no-repeat;
     }
+  }
 
-    .project-tmt--img {
-      background-image: url('/assets/images/tmt-bg.svg');
+  @media (min-width: 1280px) {
+    .project-ekaya {
+      background-image: url('/assets/images/ekaya-bg.svg');
       background-size: 50%;
       background-position: top right;
       background-repeat: no-repeat;
     }
   }
-  @media (min-height: 1200px) {
-    .project-ekaya {
-      background-position: right bottom;
-    }
-  }
 
-  @media (min-height: 1200px) and (min-width: 1280px) {
-    .project-ekaya {
-      background-position: 65% bottom;
-    }
-  }
 </style>
